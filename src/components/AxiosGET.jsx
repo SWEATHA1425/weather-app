@@ -22,8 +22,10 @@ function AxiosGET(){
     if(error) return <p>Error: {error}</p>
 
     return(
-        <div className="p-6 max-w-xl mx-auto bg-white rounded shadow space-y-4">
+      
+        <div className="w-[70%] mx-auto p-6 mx-auto bg-white rounded shadow space-y-8">
             <h1 className="text-2xl font-semibold text-center">Get method in Axios</h1>
+           
             <ul className="list-disc list-inside space-y-1 text-left">{data.map((post) =>(
                 <li key={post.id}>{post.title}</li>
             ))}</ul>

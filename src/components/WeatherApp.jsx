@@ -12,7 +12,7 @@ function WeatherApp(){
         const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const now = new Date();
-        return `${days[now.getDay()]}, ${now.getDate()} ${month[now.getMonth]}`;
+        return `${days[now.getDay()]}, ${now.getDate()} ${month[now.getMonth()]}`;
 
     }
 
@@ -37,20 +37,25 @@ function WeatherApp(){
 
     return(
         <div className="p-6 max-w-xl mx-auto bg-white rounded shadow space-y-4">
-        <h1 className="text-2xl font-semibold">Simple Weather app</h1>
-        <input className="p-2 w-72 border border-gray-300 rounded"
-        type="text" placeholder="Enter city name" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleSearch}/>
+        <h1 className="text-2xl font-bold text-blue-500">Simple Weather app</h1>
+        <input className="p-2 w-72 border border-blue-300 rounded shadow"
+        type="text" 
+        placeholder="Enter city name" 
+        value={input} 
+        onChange={(e) => setInput(e.target.value)} 
+        onKeyDown={handleSearch}
+        />
         
-        {weather.loading && <p>Loading...</p>}
-        {weather.error && <p>City not found. Please try again.</p>}
+        {weather.loading && <p className="font-semibold text-green-400">Loading...</p>}
+        {weather.error && <p className="font-semibold text-red-600">City not found. Please try a valid city name.</p>}
 
         {weather.data && (
-        <div className="weather-info">
-          <h2>{weather.data.name}, {weather.data.sys.country}</h2>
-          <p>{getDate()}</p>
-          <h3>Temperature : {Math.round(weather.data.main.temp)}°C</h3>
-          <p>Description : {weather.data.weather[0].description.toUpperCase()}</p>
-          <p>Wind: {weather.data.wind.speed} m/s</p>
+        <div>
+          <h2 className="font-semibold">{weather.data.name}, {weather.data.sys.country}</h2>
+          <p className="font-semibold">{getDate()}</p>
+          <h3 className="font-semibold">Temperature : {Math.round(weather.data.main.temp)}°C</h3>
+          <p className="font-semibold">Description : {weather.data.weather[0].description.toUpperCase()}</p>
+          <p className="font-semibold">Wind: {weather.data.wind.speed} m/s</p>
         </div>
         )}
         </div>
