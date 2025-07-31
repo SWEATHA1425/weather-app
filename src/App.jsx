@@ -3,6 +3,7 @@ import './App.css'
 import AxiosGET from './components/AxiosGET'
 import AxiosPOST from './components/AxiosPOST'
 import WeatherApp from './components/WeatherApp'
+import Feedback from './components/Feedback'
 import { Link } from 'react-router-dom'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -14,6 +15,7 @@ function Navbar(){
         <li><Link to='/get'>Get</Link></li>
         <li><Link to='/post'>Post</Link></li>
         <li><Link to='/weather'>Weather</Link></li>
+        <li><Link to='/feedback'>Feedback</Link></li>
       </ul>
     </nav>
   )
@@ -29,6 +31,7 @@ function App() {
         <Route path='/get' element={<AxiosGET />} />
         <Route path='/post' element={<AxiosPOST />} />
         <Route path='/weather' element={<WeatherApp />} />
+        <Route path='/feedback' element={<Feedback />} />
       </Routes>
       </div>
     </Router>

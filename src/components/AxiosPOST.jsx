@@ -14,7 +14,10 @@ function AxiosPOST(){
         };
 
     axios.post("https://jsonplaceholder.typicode.com//posts", newPost)
-        .then((response) => {setResponseMessage("Successfully created")})
+        .then((response) => {
+            console.log(response.data);
+            setResponseMessage("Successfully created")
+        })
         .catch((error)=>{setResponseMessage("Error")})
     }
 
